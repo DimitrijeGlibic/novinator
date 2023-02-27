@@ -23,8 +23,8 @@ const AuthorWrapper = styled.div`
 `;
 
 const StyledImage = styled.img`
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     margin-right: 16px;
 `;
@@ -36,11 +36,11 @@ const AuthorInfoWrapper = styled.span`
 
 const AuthorName = styled.span`
     font-weight: bold;
-    font-size: 11px;
+    font-size: 14px;
     vertical-align: top;
 `;
 
 const Score = styled.span`
-    font-size: 11px;
+    font-size: 14px;
     font-weight: bold;
 `;

@@ -8,10 +8,10 @@ const ReactionButtons = () => {
     return (
         <div className="d-grid gap-2">
             <ButtonGroup>
-                <StyledButton variant="outline-success">
+                <StyledButton variant="outline-light">
                     <FontAwesomeIcon icon={faThumbsUp} />
                 </StyledButton>
-                <StyledButton variant="outline-danger">
+                <StyledButton variant="outline-light">
                     <FontAwesomeIcon icon={faThumbsDown} />
                 </StyledButton>
             </ButtonGroup>

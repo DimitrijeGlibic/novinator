@@ -6,7 +6,7 @@ import { faComment } from '@fortawesome/free-solid-svg-icons';
 const DiscussButton = () => {
     return (
         <div className="d-grid gap-2">
-            <StyledButton variant="outline-primary">
+            <StyledButton variant="outline-light">
                 <FontAwesomeIcon icon={faComment} />
             </StyledButton>
         </div>
