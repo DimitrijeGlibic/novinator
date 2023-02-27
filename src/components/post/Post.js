@@ -1,18 +1,19 @@
+import Carousel from 'react-bootstrap/Carousel';
+import Content from './Content';
+import DiscussButton from './DiscussButton';
+import ReactionButtons from './ReactionButtons';
+
 const Post = ({ post }) => {
     const { author, score, title, content } = post;
-
-    const renderContent = () => {
-        return content.map(({text}) => (
-            <div>{text}</div>
-        ));
-    }
 
     return (
         <div>
             <div>{author}</div>
             <div>{score}</div>
             <div>{title}</div>
-            <div>{renderContent()}</div>
+            <Content slides={content} />
+            <ReactionButtons />
+            <DiscussButton />
         </div>
     );
 };
