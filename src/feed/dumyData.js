@@ -1,7 +1,10 @@
 export const data = [
     {
-        author: "Dimitrije Glibic",
-        score: 4.6,
+        author: {
+            name: "Dimitrije Glibic",
+            score: 4.6,
+            photo: "logo192.png"
+        },
         title: "Naslov prvog tekst",
         content: [
             {
@@ -19,8 +22,11 @@ export const data = [
         ]
     },
     {
-        author: "Dimitrije Glibic",
-        score: 4.4, 
+        author: {
+            name: "Dimitrije Glibic",
+            score: 4.6,
+            photo: "logo192.png"
+        },
         title: "Naslov drugog tekst",
         content: [
             {
