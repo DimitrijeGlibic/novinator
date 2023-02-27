@@ -20,16 +20,12 @@ export default Author;
 
 const AuthorWrapper = styled.div`
     display: flex;
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    z-index: 1;
-    color: white;
 `;
 
 const StyledImage = styled.img`
     width: 32px;
     height: 32px;
+    border-radius: 50%;
     margin-right: 16px;
 `;
 

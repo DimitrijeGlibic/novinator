@@ -10,8 +10,10 @@ const Post = ({ post }) => {
 
     return (
         <PostWrapper>
-            <Author name={name} score={score} photo={photo} />
-            {/* <div>{title}</div> */}
+            <PostInfo>
+                <Author name={name} score={score} photo={photo} />
+                <PostTitle><span>{title}</span></PostTitle>
+            </PostInfo>
             <Content slides={content} />
             <ReactionButtons />
             <DiscussButton />
@@ -23,4 +25,20 @@ export default Post;
 
 const PostWrapper = styled.div`
     position: relative;
+`;
+
+const PostInfo = styled.div`
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    z-index: 1;
+    color: white;
+
+    display: flex;
+`;
+
+const PostTitle = styled.div`
+    font-weight: bold;
+    margin-left: 32px;
+    font-size: 12px;
 `;
