@@ -12,7 +12,7 @@ const Content = ({ slides }) => {
   };
 
   return (
-    <Swiper spaceBetween={0} slidesPerView={1}>
+    <Swiper spaceBetween={0} slidesPerView={1} style={{height: '100%'}}>
       {renderContent()}
       <SwiperSlide>
         <LastSlide />

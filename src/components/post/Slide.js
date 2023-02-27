@@ -12,7 +12,7 @@ const Slide = ({ text }) => {
 export default Slide;
 
 const SlideWrapper = styled.div`
-    height: 500px;
+    height: 100%;
     background-color: black;
     color: white;
     display: flex;

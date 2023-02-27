@@ -21,6 +21,7 @@ export default Post;
 const PostWrapper = styled.div`
     position: relative;
     margin: 20px 0;
+    height: 90vh;
 `;
 
 const PostInfo = styled.div`

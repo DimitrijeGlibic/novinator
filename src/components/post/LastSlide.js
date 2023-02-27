@@ -20,5 +20,5 @@ const LastSlideWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 500px;
+    height: 100%;
 `;
