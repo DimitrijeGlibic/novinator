@@ -20,8 +20,7 @@ export default Post;
 
 const PostWrapper = styled.div`
     position: relative;
-    margin: 20px 0;
-    height: 90vh;
+    height: 100%;
 `;
 
 const PostInfo = styled.div`
