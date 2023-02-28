@@ -19,7 +19,7 @@ const Content = ({ title, slides, theme }) => {
       </SwiperSlide>
       {renderContent()}
       <SwiperSlide>
-        <LastSlide />
+        <LastSlide theme={theme} />
       </SwiperSlide>
     </Swiper>
   );
