@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import DiscussButton from "./DiscussButton";
-import ReactionButtons from "./ReactionButtons";
+import DiscussButton from "../DiscussButton";
+import ReactionButtons from "../ReactionButtons";
 
 const LastSlide = () => {
     return (

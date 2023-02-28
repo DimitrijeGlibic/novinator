@@ -14,7 +14,7 @@ const Feed = () => {
 
   return (
     <Swiper
-      spaceBetween={0.1}
+      spaceBetween={0}
       slidesPerView={1.1}
       direction="vertical"
       style={{height: "100vh"}}

@@ -20,6 +20,7 @@ export default Author;
 
 const AuthorWrapper = styled.div`
     display: flex;
+    padding: 32px 16px 24px 16px;
 `;
 
 const StyledImage = styled.img`
