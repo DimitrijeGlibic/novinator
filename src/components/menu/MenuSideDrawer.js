@@ -3,9 +3,9 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fragment } from "react";
 import { Button, Nav, Offcanvas } from "react-bootstrap";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
-const SideDrawer = () => {
+const MenuSideDrawer = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -13,16 +13,17 @@ const SideDrawer = () => {
 
   return (
     <Fragment>
-      <PersonalButton variant="outline-light" onClick={handleShow}>
+      <PersonalButton variant="outline-light" onClick={handleShow} $show={show}>
         <FontAwesomeIcon icon={faUser} />
       </PersonalButton>
 
-      <Offcanvas show={show} onHide={handleClose}>
+      <SideDrawer show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Dimitrije Glibic</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Nav defaultActiveKey="/home" className="flex-column">
+            <Nav.Link href="/home">Sitch to personal mode</Nav.Link>
             <Nav.Link href="/home">Write a story</Nav.Link>
             <Nav.Link eventKey="link-1">Invite friends</Nav.Link>
             <Nav.Link eventKey="link-2">Settings</Nav.Link>
@@ -31,18 +32,18 @@ const SideDrawer = () => {
             </Nav.Link>
           </Nav>
         </Offcanvas.Body>
-      </Offcanvas>
+      </SideDrawer>
     </Fragment>
   );
 };
 
-export default SideDrawer;
+export default MenuSideDrawer;
 
 const PersonalButton = styled(Button)`
   position: fixed;
   left: 0;
   top: 32px;
-  z-index: 10;
+  z-index: 11;
   border-width: 3px;
   border-left: 0;
   border-top-left-radius: 0;
@@ -51,4 +52,8 @@ const PersonalButton = styled(Button)`
   border-bottom-right-radius: 50%;
   font-size: 22px;
   padding-right: 16px;
+`;
+
+const SideDrawer = styled(Offcanvas)`
+  width: 80% !important;
 `;

@@ -5,7 +5,7 @@ const Slide = ({ text, title, theme: { background, color, titleColor, font } }) 
   return (
     <SlideWrapper $color={color} $background={background} $font={font}>
       {title && (<StyledHeading $color={titleColor}>{title}</StyledHeading>)}
-      {text}
+      <p>{text}</p>
     </SlideWrapper>
   );
 };
@@ -17,7 +17,7 @@ const SlideWrapper = styled.div`
   background-color: ${({$background}) => $background};
   color: ${({$color}) => $color};
 
-  padding: 50px 16px;
+  padding: 100px 16px;
   font-size: 26px;
   line-height: 30px;
   font-family: ${({ $font }) => $font};

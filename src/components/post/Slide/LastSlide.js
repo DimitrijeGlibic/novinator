@@ -1,11 +1,8 @@
 import { Button, ButtonGroup } from "react-bootstrap";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faThumbsUp,
-  faThumbsDown,
-  faComment,
-} from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import CommentsSideDrawer from "../Comments/CommentsSideDrawer";
 
 const LastSlide = ({ theme: { background, titleColor, font } }) => {
   return (
@@ -19,11 +16,7 @@ const LastSlide = ({ theme: { background, titleColor, font } }) => {
             <FontAwesomeIcon icon={faThumbsDown} />
           </ReactionButton>
         </ReactionButtonGroup>
-        <div className="d-grid gap-2 mt-5">
-          <DiscussButton variant="light">
-            <FontAwesomeIcon icon={faComment} />
-          </DiscussButton>
-        </div>
+        <CommentsSideDrawer />
       </div>
     </LastSlideWrapper>
   );
@@ -48,8 +41,4 @@ const ReactionButtonGroup = styled(ButtonGroup)`
 const ReactionButton = styled(Button)`
   font-size: 44px;
   border: 0;
-`;
-
-const DiscussButton = styled(Button)`
-  font-size: 44px;
 `;
