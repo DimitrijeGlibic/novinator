@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
-import ShareModal from '../share/ShareModal';
+import ShareModal from './share/ShareModal';
 import Author from './Author';
 import Content from './Content';
 
