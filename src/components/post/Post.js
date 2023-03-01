@@ -1,3 +1,6 @@
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import Author from './Author';
 import Content from './Content';
@@ -7,9 +10,13 @@ const Post = ({ post }) => {
 
     return (
         <PostWrapper>
+            <ShareButton variant="outline-light">
+                <FontAwesomeIcon icon={faShare} />
+            </ShareButton>
             <Content title={title} slides={content} theme={theme} />
             <PostInfo>
                 <Author name={name} score={score} photo={photo} />
+                <FollowBtnWrapper><Button variant="outline-light" size="sm">Follow</Button></FollowBtnWrapper>
             </PostInfo>
         </PostWrapper>
     );
@@ -23,6 +30,8 @@ const PostWrapper = styled.div`
 `;
 
 const PostInfo = styled.div`
+    padding: 24px;
+
     position: absolute;
     bottom: 0;
     left: 0;
@@ -30,19 +39,21 @@ const PostInfo = styled.div`
     z-index: 11;
     color: white;
     display: flex;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
+    justify-content: space-between;
 `;
 
-const PostTitle = styled.div`
+const FollowBtnWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+
+const ShareButton = styled(Button)`
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 11;
-    font-weight: bold;
-    font-style: italic;
-    font-size: 16px;
-    color: white;
-    padding: 24px 16px 32px 16px;
-    background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
+    top: 8px;
+    right: 16px;
+    z-index: 2;
+    border: 0;
+    font-size: 32px;
+    border-radius: 50%;
 `;

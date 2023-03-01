@@ -1,9 +1,9 @@
 export const data = [
   {
     author: {
-      name: "Gael Jacke",
+      name: "Blic",
       score: 3,
-      photo: "http://dummyimage.com/148x100.png/ff4444/ffffff",
+      photo: "https://ocdn.eu/blic/static/share_image.jpg",
     },
     title: '"NEĆU DA IMPLEMENTIRAM ČLANSTVO U UN" Vučić o evropskom planu za Kosovo: Hoću normalizaciju, ne stidim se toga, ali ovo NEĆU DA POTPIŠEM',
     content: [
@@ -70,29 +70,25 @@ export const data = [
   },
   {
     author: {
-      name: "Adler Moynihan",
+      name: "Buka",
       score: 3.5,
-      photo: "http://dummyimage.com/117x100.png/ff4444/ffffff",
+      photo: "https://6yka.com/svg/buka-radio-logo.svg",
     },
     title:
-      "ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam",
+      "Ozren Perduv za BUKU o pretresima u Banjaluci: Nemamo povjerenje u MUP RS",
     content: [
       {
-        text: "priv slajd",
+        text: "Mediji su objavili da je u toku pretres na više lokacija u Banjaluci vezano za slučaj Dragičević.",
       },
       {
-        text: "drugi slajd",
-      },
-      {
-        text: "treci slajd",
-      },
-      {
-        text: "cetvrti slajd",
-      },
+        text: '"Mi ništa ne znamo, saznali smo sad iz medija, imamo pomalo nevjericu jer je u pretrese uključen MUP RS. Mi nemamo povjerenje u MUP RS i smatramo da druge policijske agencije pretrese mogu obavljati, brz učešća MUP-a RS... ',
+      }
     ],
     theme: {
-        background: "#0d4b53",
-        color: "white"   
+        background: "#0d0d0d",
+        color: "#fff",
+        titleColor: '#b77de0',
+        font: "'Roboto Mono', monospace"   
     }
   },
   {
@@ -101,7 +97,7 @@ export const data = [
       score: 4.2,
       image: "http://dummyimage.com/198x100.png/5fa2dd/ffffff",
     },
-    title: "ut massa volutpat convallis morbi odio odio elementum eu",
+    title: "Hajrija Čobo, aktivistkinja iz Kaknja za BUKU: Zbog rudnika hoće da nam unište rijeku koju pijemo",
     content: [
       {
         text: "priv slajd",
@@ -117,8 +113,10 @@ export const data = [
       },
     ],
     theme: {
-        background: "white",
-        color: "black"   
+        background: "#a1734f",
+        color: "#fff",
+        titleColor: "#edcdb5",
+        font: "'Teko', sans-serif"
     }
   },
   {
@@ -169,8 +167,10 @@ export const data = [
       },
     ],
     theme: {
-        background: "yellow",
-        color: "black"   
+        background: "#848e65",
+        color: "#3d3c43",
+        titleColor: "#fff",
+        font: "'Roboto Mono', monospace"   
     }
   },
   {

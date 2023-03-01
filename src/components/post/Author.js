@@ -20,14 +20,15 @@ export default Author;
 
 const AuthorWrapper = styled.div`
     display: flex;
-    padding: 32px 16px 24px 16px;
 `;
 
 const StyledImage = styled.img`
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 16px;
+    object-fit: cover;
+    border: 1pt solid;
 `;
 
 const AuthorInfoWrapper = styled.span`

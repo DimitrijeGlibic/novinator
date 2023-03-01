@@ -5,11 +5,12 @@ import "swiper/css";
 import "./App.css";
 import { Fragment } from "react";
 import styled from "styled-components";
-
+import SideDrawer from "./components/SideDrawer";
 function App() {
   return (
     <Fragment>
       <FeedContainer>
+        <SideDrawer />
         <Feed />
       </FeedContainer>
     </Fragment>
