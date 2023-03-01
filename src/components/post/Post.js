@@ -1,23 +1,36 @@
-import { faShare } from '@fortawesome/free-solid-svg-icons';
+import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
+import ShareModal from '../share/ShareModal';
 import Author from './Author';
 import Content from './Content';
 
 const Post = ({ post }) => {
     const { author: { name, score, photo }, title, content, theme } = post;
+    const [isShareModalVisible, setIsShareModalVisible] = useState(false);
+
+    const handleShareButtonClick = () => {
+        setIsShareModalVisible(true);
+    }
+
+    const closeModal = () => {
+        setIsShareModalVisible(false);
+    }
 
     return (
         <PostWrapper>
-            <ShareButton variant="outline-light">
-                <FontAwesomeIcon icon={faShare} />
+            <ShareButton variant="outline-light" onClick={handleShareButtonClick}>
+                <FontAwesomeIcon icon={faBullhorn} />
             </ShareButton>
             <Content title={title} slides={content} theme={theme} />
             <PostInfo>
                 <Author name={name} score={score} photo={photo} />
                 <FollowBtnWrapper><Button variant="outline-light" size="sm">Follow</Button></FollowBtnWrapper>
             </PostInfo>
+
+            <ShareModal isVisible={isShareModalVisible} handleCloseModal={closeModal} />
         </PostWrapper>
     );
 };
@@ -50,10 +63,15 @@ const FollowBtnWrapper = styled.div`
 
 const ShareButton = styled(Button)`
     position: absolute;
-    top: 8px;
+    top: 32px;
     right: 16px;
     z-index: 2;
     border: 0;
     font-size: 32px;
-    border-radius: 50%;
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: transparent !important;
+        color: #fff !important;
+    }
 `;
