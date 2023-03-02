@@ -22,7 +22,6 @@ const TimeLine = () => {
 
   return (
     <FeedContainer>
-      <MenuSideDrawer />
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
