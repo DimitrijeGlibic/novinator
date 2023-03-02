@@ -1,13 +1,19 @@
 import Post from "./post/Post";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { data } from "./dumyData";
 import styled from "styled-components";
 import MenuSideDrawer from "../components/menu/MenuSideDrawer";
 import { Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 const TimeLine = () => {
+  const { postId } = useParams();
+  const swiper = useSwiper();
+  console.log(swiper, 'swajper');
+
   const renderPosts = () => {
-    return data.map((post, index) => (
+    data.reverse();
+    return data.map((post, index) => ( // aray reverse da bi najstariji post imao index 1
       <SwiperSlide key={index}>
         <Post post={post} />
       </SwiperSlide>
@@ -23,6 +29,7 @@ const TimeLine = () => {
         direction="vertical"
         style={{ height: "100vh" }}
         mousewheel={true}
+        initialSlide={postId}
       >
         {renderPosts()}
         <SwiperSlide>

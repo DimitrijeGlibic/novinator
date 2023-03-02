@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const Slide = ({ text, title, theme: { background, color, titleColor, font } }) => {
-  console.log(title, Boolean(title));
   return (
     <SlideWrapper $color={color} $background={background} $font={font}>
       {title && (<StyledHeading $color={titleColor}>{title}</StyledHeading>)}
