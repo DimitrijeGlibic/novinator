@@ -10,14 +10,15 @@ const ThemeChoser = () => {
     ));
   };
   return (
-    <Swiper
-      spaceBetween={16}
-      slidesPerView={3.3}
-      style={{ height: "200px", width: "100%" }}
-      centeredSlides
-    >
-      {renerThemeSlides()}
-    </Swiper>
+    <ThemeChoserWrapper>
+      <Swiper
+        spaceBetween={16}
+        slidesPerView={3.3}
+        style={{ width: "100%" }}
+      >
+        {renerThemeSlides()}
+      </Swiper>
+    </ThemeChoserWrapper>
   );
 };
 
@@ -29,3 +30,5 @@ const SingleThemeSlide = styled.div`
   background-color: #fff;
   border-radius: 6px;
 `;
+
+const ThemeChoserWrapper = styled.div``;

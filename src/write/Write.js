@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import styled from "styled-components";
 import SlideNavigator from "./SlideNavigator";
 import ThemeChoser from "./ThemeChoser";
@@ -9,8 +8,8 @@ const Write = () => {
     <WriteWrapper>
       <PageHeading>Write a story</PageHeading>
       <SlideNavigator />
-      <ThemeChoser />
       <Writer />
+      <ThemeChoser />
     </WriteWrapper>
   );
 };
@@ -25,5 +24,6 @@ const PageHeading = styled.h1`
 const WriteWrapper = styled.div`
   background-color: green;
   padding: 24px;
+  min-height: 100vh;
 `;
 
