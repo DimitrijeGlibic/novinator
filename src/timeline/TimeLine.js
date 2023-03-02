@@ -2,7 +2,6 @@ import Post from "./post/Post";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { data } from "./dumyData";
 import styled from "styled-components";
-import MenuSideDrawer from "../components/menu/MenuSideDrawer";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
@@ -14,7 +13,7 @@ const TimeLine = () => {
   const renderPosts = () => {
     data.reverse();
     return data.map((post, index) => ( // aray reverse da bi najstariji post imao index 1
-      <SwiperSlide key={index}>
+      <SwiperSlide key={index} url={index}>
         <Post post={post} />
       </SwiperSlide>
     ));
