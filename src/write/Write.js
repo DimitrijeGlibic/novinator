@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -19,6 +20,9 @@ const Write = () => {
       >
         {renderSlidesPreview()}
       </Swiper>
+      <div className="d-grid gap-2 mt-4">
+          <PublishButton variant="warning">Publish</PublishButton>
+        </div>
     </WriteWrapper>
   );
 };
@@ -29,6 +33,7 @@ const WriteWrapper = styled.div`
   background-color: green;
   padding: 100px 24px;
   height: 100vh;
+  position: relative;
 `;
 
 const SlidePreview = styled.div`
@@ -36,4 +41,11 @@ const SlidePreview = styled.div`
   height: 100%;
   background-color: red;
   border-radius: 6px;
+`;
+
+const PublishButton = styled(Button)`
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
 `;
