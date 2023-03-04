@@ -13,7 +13,7 @@ const ThemeChoser = () => {
     <ThemeChoserWrapper>
       <Swiper
         spaceBetween={16}
-        slidesPerView={3.3}
+        slidesPerView={4.3}
         style={{ width: "100%" }}
       >
         {renerThemeSlides()}
@@ -25,7 +25,7 @@ const ThemeChoser = () => {
 export default ThemeChoser;
 
 const SingleThemeSlide = styled.div`
-  height: 70px;
+  height: 50px;
   width: 100%;
   background-color: #fff;
   border-radius: 6px;

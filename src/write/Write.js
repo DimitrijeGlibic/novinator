@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ThemeChoser from "./ThemeChoser";
 
 const Write = () => {
   const renderSlidesPreview = () => {
@@ -13,6 +14,9 @@ const Write = () => {
 
   return (
     <WriteWrapper>
+      <ThemeChoserWrapper>
+        <ThemeChoser />
+      </ThemeChoserWrapper>
       <Swiper
         spaceBetween={16}
         slidesPerView={1}
@@ -48,4 +52,11 @@ const PublishButton = styled(Button)`
   bottom: 24px;
   left: 24px;
   right: 24px;
+`;
+
+const ThemeChoserWrapper = styled.div`
+  position: absolute;
+  right: 24px;
+  left: 80px;
+  top: 32px;
 `;
