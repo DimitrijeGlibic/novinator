@@ -8,6 +8,8 @@ import SignInModal from "./components/menu/SignIn/SignInModal";
 import Write from "./write/Write";
 import MenuSideDrawer from "./components/menu/MenuSideDrawer";
 import { Fragment } from "react";
+import CreatePost from "./write/CreatePost";
+import { themes } from "./write/themes";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
           <Route path="/:postId/sign-in" element={<SignInModal />} />
         </Route>
         <Route path="/write" element={<Write />} />
+        <Route path="/create-post" element={<CreatePost themes={themes} />} />
       </Routes>
     </Fragment>
   );
