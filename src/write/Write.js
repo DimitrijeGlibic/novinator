@@ -1,29 +1,39 @@
 import styled from "styled-components";
-import SlideNavigator from "./SlideNavigator";
-import ThemeChoser from "./ThemeChoser";
-import Writer from "./Writer";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const Write = () => {
+  const renderSlidesPreview = () => {
+    return [1,2,3,4,5].map((cnt) => (
+      <SwiperSlide>
+        <SlidePreview>{cnt}</SlidePreview>
+      </SwiperSlide>
+    ));
+  };
+
   return (
     <WriteWrapper>
-      <PageHeading>Write a story</PageHeading>
-      <SlideNavigator />
-      <Writer />
-      <ThemeChoser />
+      <Swiper
+        spaceBetween={16}
+        slidesPerView={1}
+        style={{ height: "100%", width: "100%" }}
+      >
+        {renderSlidesPreview()}
+      </Swiper>
     </WriteWrapper>
   );
 };
 
 export default Write;
 
-const PageHeading = styled.h1`
-  padding-top: 40px;
-  text-align: center;
-`;
-
 const WriteWrapper = styled.div`
   background-color: green;
-  padding: 24px;
-  min-height: 100vh;
+  padding: 100px 24px;
+  height: 100vh;
 `;
 
+const SlidePreview = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  border-radius: 6px;
+`;
