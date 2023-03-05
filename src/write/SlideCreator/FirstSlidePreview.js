@@ -1,14 +1,13 @@
-import { useState } from "react";
 import { Form } from "react-bootstrap";
 
 import styled from "styled-components";
 
 const FirstSlidePreview = ({ theme: { background, titleColor, font } }) => {
-  const [currentTitle, setCurrentTitle] = useState("Upisi naslov posta");
-  const [currentRows, setCurrentRows] = useState(1);
 
   const handleChange = (e) => {
-    setCurrentRows( Math.floor(e.target.scrollHeight / 32.88));
+    e.target.style.height = '0px';
+    const scrollHeight = e.target.scrollHeight;
+    e.target.style.height =  `${scrollHeight}px`;
   }
 
   return (
@@ -22,7 +21,7 @@ const FirstSlidePreview = ({ theme: { background, titleColor, font } }) => {
             $color={titleColor}
             $font={font}
             onChange={handleChange}
-            rows={currentRows}
+            rows={1}
           />
         </Form.Group>
       </Form>
@@ -41,12 +40,6 @@ const SlideWrapper = styled.div`
   padding: 50px 24px;
   font-size: 22px;
   line-height: 24px;
-`;
-
-const StyledHeading = styled.h1`
-  color: ${({ $color }) => $color};
-  font-weight: bold;
-  font-family: ${({ $font }) => $font};
 `;
 
 const StyledInputHeading = styled(Form.Control)`
