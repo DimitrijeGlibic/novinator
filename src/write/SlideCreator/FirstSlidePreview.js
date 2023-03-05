@@ -50,8 +50,8 @@ const StyledInputHeading = styled(Form.Control)`
   padding: 0;
   background: transparent;
   border: 0;
-  font-size: 27.4px;
-  line-height: 32.88px;
+  font-size: calc(1.375rem + 1.5vw);
+  line-height: 1.2;
   &:focus {
     padding: 0;
     background: transparent;
