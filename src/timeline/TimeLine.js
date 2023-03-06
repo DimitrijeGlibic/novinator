@@ -1,22 +1,32 @@
 import Post from "./post/Post";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { data } from "./dumyData";
 import styled from "styled-components";
 import { Container } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const TimeLine = () => {
   const { postId } = useParams();
-  const swiper = useSwiper();
-  console.log(swiper, 'swajper');
+  const navigate = useNavigate();
 
   const renderPosts = () => {
-    data.reverse();
-    return data.map((post, index) => ( // aray reverse da bi najstariji post imao index 1
+    return [...data].reverse().map((post, index) => ( // aray reverse da bi najstariji post imao index 1
       <SwiperSlide key={index} url={index}>
         <Post post={post} />
       </SwiperSlide>
     ));
+  };
+
+  const convertIdToIndex = () => {
+    return data.length - postId;
+  }
+
+  const handleSwipeChange = ({ activeIndex, previousIndex }) => {
+    if (activeIndex == convertIdToIndex()) { // Edge case for initial slide
+      return;
+    }
+
+    navigate(`/${+postId + previousIndex - activeIndex}`)
   };
 
   return (
@@ -27,7 +37,8 @@ const TimeLine = () => {
         direction="vertical"
         style={{ height: "100vh" }}
         mousewheel={true}
-        initialSlide={postId}
+        initialSlide={convertIdToIndex()}
+        onSlideChange={handleSwipeChange}
       >
         {renderPosts()}
         <SwiperSlide>
