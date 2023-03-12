@@ -5,8 +5,29 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import FirstSlidePreview from "./SlideCreator/FirstSlidePreview";
 import SlidePreview from "./SlideCreator/SlidePreview";
 import "swiper/css/pagination";
+import AddNewSlide from "./SlideCreator/AddNewSlide";
+import { useState } from "react";
+
 export const CreatePost = ({ themes }) => {
   const defaultTheme = themes[1];
+
+  const [slidesCount, setSlidesCount] = useState(1);
+
+  const addNewSlide = () => {
+    setSlidesCount((oldValue) => oldValue + 1);
+  };
+
+  const renderSlidesPreview = () => {
+    return [...Array(slidesCount).keys()].map((slide, index) => (
+      <SwiperSlide>
+        <SlidePreview
+          theme={defaultTheme}
+          title="Podnaslov za drugi slajd"
+          text="opsis nesto"
+        />
+      </SwiperSlide>
+    ));
+  };
 
   return (
     <SlideWrapper>
@@ -23,17 +44,10 @@ export const CreatePost = ({ themes }) => {
         <SwiperSlide>
           <FirstSlidePreview theme={defaultTheme} />
         </SwiperSlide>
+        {renderSlidesPreview()}
         <SwiperSlide>
-          <SlidePreview
-            theme={defaultTheme}
-            title="Podnaslov za drugi slajd"
-            text="opsis nesto"
-          />
+          <AddNewSlide theme={defaultTheme} addNewSlide={addNewSlide} />
         </SwiperSlide>
-        {/* {renderContent()} */}
-        {/* <SwiperSlide>
-        <LastSlide theme={theme} />
-      </SwiperSlide> */}
       </Swiper>
       <div className="d-grid gap-2 mt-4">
         <PublishButton variant="outline-light">Publish</PublishButton>
