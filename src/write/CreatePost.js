@@ -1,9 +1,10 @@
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
+import { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import FirstSlidePreview from "./SlideCreator/FirstSlidePreview";
 import SlidePreview from "./SlideCreator/SlidePreview";
-
+import "swiper/css/pagination";
 export const CreatePost = ({ themes }) => {
   const defaultTheme = themes[1];
 
@@ -12,12 +13,22 @@ export const CreatePost = ({ themes }) => {
       <ThemeChoserButton variant="outline-light">
         Change theme
       </ThemeChoserButton>
-      <Swiper spaceBetween={0} slidesPerView={1} style={{ height: "100%" }}>
+      <Swiper
+        spaceBetween={0}
+        slidesPerView={1}
+        style={{ height: "100%" }}
+        modules={[Pagination]}
+        pagination={{ clickable: true }}
+      >
         <SwiperSlide>
           <FirstSlidePreview theme={defaultTheme} />
         </SwiperSlide>
         <SwiperSlide>
-          <SlidePreview theme={defaultTheme} title="Podnaslov za drugi slajd" text="opsis nesto" />
+          <SlidePreview
+            theme={defaultTheme}
+            title="Podnaslov za drugi slajd"
+            text="opsis nesto"
+          />
         </SwiperSlide>
         {/* {renderContent()} */}
         {/* <SwiperSlide>
@@ -47,9 +58,9 @@ const ThemeChoserButton = styled(Button)`
 `;
 
 const PublishButton = styled(Button)`
-    position: absolute;
-    bottom: 32px;
-    right: 24px;
-    left: 24px;
-    z-index: 2;
+  position: absolute;
+  bottom: 32px;
+  right: 24px;
+  left: 24px;
+  z-index: 2;
 `;
