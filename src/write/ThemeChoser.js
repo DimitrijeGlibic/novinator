@@ -3,13 +3,20 @@ import { Button, Offcanvas } from "react-bootstrap";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-const ThemeChoser = () => {
+const ThemeChoser = ({ themes, onThemeSelect }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const renerThemeSlides = () => {
-    return [1, 2, 3, 4, 5].map((num) => (
+    return themes.map(({ background, color }, index) => (
       <SwiperSlide>
-        <SingleThemeSlide>theme {num}</SingleThemeSlide>
+        <SingleThemeSlide
+          $background={background}
+          $color={color}
+          onClick={() => onThemeSelect(index)}
+          key={index}
+        >
+          theme {index}
+        </SingleThemeSlide>
       </SwiperSlide>
     ));
   };
@@ -51,7 +58,8 @@ export default ThemeChoser;
 const SingleThemeSlide = styled.div`
   height: 50px;
   width: 100%;
-  background-color: red;
+  background-color: ${({ $background }) => $background};
+  color: ${({ $color }) => $color};
   border-radius: 6px;
 `;
 

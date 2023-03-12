@@ -10,7 +10,7 @@ import { useState } from "react";
 import ThemeChoser from "./ThemeChoser";
 
 export const CreatePost = ({ themes }) => {
-  const defaultTheme = themes[1];
+  const [selectedTheme, setSelectedTheme] = useState(1);
 
   const [slidesCount, setSlidesCount] = useState(1);
 
@@ -18,11 +18,15 @@ export const CreatePost = ({ themes }) => {
     setSlidesCount((oldValue) => oldValue + 1);
   };
 
+  const onThemeSelect = (themeIndex) => {
+    setSelectedTheme(themeIndex);
+  };
+
   const renderSlidesPreview = () => {
     return [...Array(slidesCount).keys()].map((slide, index) => (
       <SwiperSlide>
         <SlidePreview
-          theme={defaultTheme}
+          theme={themes[selectedTheme]}
           title="Podnaslov za drugi slajd"
           text="opsis nesto"
         />
@@ -32,7 +36,11 @@ export const CreatePost = ({ themes }) => {
 
   return (
     <SlideWrapper>
-      <ThemeChoser />
+      <ThemeChoser
+        themes={themes}
+        selectedTheme={selectedTheme}
+        onThemeSelect={onThemeSelect}
+      />
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
@@ -41,11 +49,14 @@ export const CreatePost = ({ themes }) => {
         pagination={{ clickable: true }}
       >
         <SwiperSlide>
-          <FirstSlidePreview theme={defaultTheme} />
+          <FirstSlidePreview theme={themes[selectedTheme]} />
         </SwiperSlide>
         {renderSlidesPreview()}
         <SwiperSlide>
-          <AddNewSlide theme={defaultTheme} addNewSlide={addNewSlide} />
+          <AddNewSlide
+            theme={themes[selectedTheme]}
+            addNewSlide={addNewSlide}
+          />
         </SwiperSlide>
       </Swiper>
       <div className="d-grid gap-2 mt-4">
