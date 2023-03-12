@@ -1,4 +1,4 @@
-import { faBullhorn } from '@fortawesome/free-solid-svg-icons';
+import { faBullhorn, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
@@ -31,6 +31,9 @@ const Post = ({ post }) => {
             </PostInfo>
 
             <ShareModal isVisible={isShareModalVisible} handleCloseModal={closeModal} />
+            <ReadButton variant="outline-light">
+                <FontAwesomeIcon icon={faVolumeHigh} />
+            </ReadButton>
         </PostWrapper>
     );
 };
@@ -74,4 +77,13 @@ const ShareButton = styled(Button)`
         background-color: transparent !important;
         color: #fff !important;
     }
+`;
+
+const ReadButton = styled(Button)`
+    position: absolute;
+    z-index: 2;
+    right: 24px;
+    bottom: 96px;
+    border: none;
+    font-size: 1.6rem;
 `;
