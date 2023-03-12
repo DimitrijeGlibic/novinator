@@ -1,7 +1,11 @@
+import { Fragment, useState } from "react";
+import { Button, Offcanvas } from "react-bootstrap";
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 const ThemeChoser = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
   const renerThemeSlides = () => {
     return [1, 2, 3, 4, 5].map((num) => (
       <SwiperSlide>
@@ -9,16 +13,36 @@ const ThemeChoser = () => {
       </SwiperSlide>
     ));
   };
+
+  const showThemeChoser = () => {
+    setIsVisible(true);
+  };
+
+  const hideThemeChoser = () => {
+    setIsVisible(false);
+  };
+
   return (
-    <ThemeChoserWrapper>
-      <Swiper
-        spaceBetween={16}
-        slidesPerView={4.3}
-        style={{ width: "100%" }}
-      >
-        {renerThemeSlides()}
-      </Swiper>
-    </ThemeChoserWrapper>
+    <Fragment>
+      <ThemeChoserButton variant="outline-light" onClick={showThemeChoser}>
+        Change theme
+      </ThemeChoserButton>
+
+      <Offcanvas show={isVisible} placement="top" onHide={hideThemeChoser}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Chose theme</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Swiper
+            spaceBetween={16}
+            slidesPerView={4.3}
+            style={{ width: "100%" }}
+          >
+            {renerThemeSlides()}
+          </Swiper>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </Fragment>
   );
 };
 
@@ -27,8 +51,14 @@ export default ThemeChoser;
 const SingleThemeSlide = styled.div`
   height: 50px;
   width: 100%;
-  background-color: #fff;
+  background-color: red;
   border-radius: 6px;
 `;
 
-const ThemeChoserWrapper = styled.div``;
+const ThemeChoserButton = styled(Button)`
+  position: absolute;
+  top: 40px;
+  right: 24px;
+  z-index: 2;
+  border-radius: 6px;
+`;

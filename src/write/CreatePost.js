@@ -7,6 +7,7 @@ import SlidePreview from "./SlideCreator/SlidePreview";
 import "swiper/css/pagination";
 import AddNewSlide from "./SlideCreator/AddNewSlide";
 import { useState } from "react";
+import ThemeChoser from "./ThemeChoser";
 
 export const CreatePost = ({ themes }) => {
   const defaultTheme = themes[1];
@@ -31,9 +32,7 @@ export const CreatePost = ({ themes }) => {
 
   return (
     <SlideWrapper>
-      <ThemeChoserButton variant="outline-light">
-        Change theme
-      </ThemeChoserButton>
+      <ThemeChoser />
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
@@ -61,14 +60,6 @@ export default CreatePost;
 const SlideWrapper = styled.div`
   height: 100vh;
   position: relative;
-`;
-
-const ThemeChoserButton = styled(Button)`
-  position: absolute;
-  top: 40px;
-  right: 24px;
-  z-index: 2;
-  border-radius: 6px;
 `;
 
 const PublishButton = styled(Button)`
