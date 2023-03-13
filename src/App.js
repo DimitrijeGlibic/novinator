@@ -10,6 +10,7 @@ import MenuSideDrawer from "./components/menu/MenuSideDrawer";
 import { Fragment } from "react";
 import CreatePost from "./write/CreatePost";
 import { themes } from "./write/themes";
+import Profile from "./profile/Profile";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         </Route>
         <Route path="/write" element={<Write />} />
         <Route path="/create-post" element={<CreatePost themes={themes} />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </Fragment>
   );
