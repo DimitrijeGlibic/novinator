@@ -31,20 +31,20 @@ const TimeLine = () => {
 
   return (
     <FeedContainer>
-      <Swiper
+      <StyledSwiper
         spaceBetween={0}
         slidesPerView={1}
         direction="vertical"
-        style={{ height: "100vh" }}
         mousewheel={true}
         initialSlide={convertIdToIndex()}
         onSlideChange={handleSwipeChange}
       >
         {renderPosts()}
+
         <SwiperSlide>
           <FeedEnd>End of feed, Click to go back to top</FeedEnd>
         </SwiperSlide>
-      </Swiper>
+      </StyledSwiper>
     </FeedContainer>
   );
 };
@@ -59,4 +59,13 @@ const FeedContainer = styled(Container)`
   @media (max-width: 576px) {
     padding: 0;
   }
+`;
+
+const StyledSwiper = styled(Swiper)`
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 `;
