@@ -7,18 +7,12 @@ import ShareModal from './share/ShareModal';
 import Author from './Author';
 import Content from './Content';
 import { useSwiperSlide } from 'swiper/react';
+import PostMetaTags from './PostMetaTags';
 
 const Post = ({ post }) => {
     const { author: { name, score, photo }, title, content, theme } = post;
     const [isShareModalVisible, setIsShareModalVisible] = useState(false);
     const {isActive} = useSwiperSlide();
-
-    useEffect(() => {
-        if (!isActive) {
-            return;
-        }
-        document.title = title;
-    }, [isActive]);
 
     const handleShareButtonClick = () => {
         setIsShareModalVisible(true);
@@ -30,6 +24,7 @@ const Post = ({ post }) => {
 
     return (
         <PostWrapper>
+            <PostMetaTags post={post} isActive={isActive} />
             <ShareButton variant="outline-light" onClick={handleShareButtonClick}>
                 <FontAwesomeIcon icon={faBullhorn} />
             </ShareButton>
