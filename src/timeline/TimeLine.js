@@ -38,6 +38,7 @@ const TimeLine = () => {
         mousewheel={true}
         initialSlide={convertIdToIndex()}
         onSlideChange={handleSwipeChange}
+        speed={1200}
       >
         {renderPosts()}
 
