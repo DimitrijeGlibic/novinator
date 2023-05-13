@@ -22,9 +22,9 @@ const MenuSideDrawer = () => {
           <Offcanvas.Title>Dimitrije Glibic</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link href="/home">Sitch to personal mode</Nav.Link>
-            <Nav.Link href="/home">Write a story</Nav.Link>
+          <Nav defaultActiveKey="/" className="flex-column">
+            <Nav.Link href="/1">TimeLine</Nav.Link>
+            <Nav.Link href="/create-post">Write a story</Nav.Link>
             <Nav.Link eventKey="link-1">Invite friends</Nav.Link>
             <Nav.Link eventKey="link-2">Settings</Nav.Link>
             <Nav.Link eventKey="link-3">
