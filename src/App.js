@@ -10,12 +10,14 @@ import { Fragment } from "react";
 import CreatePost from "./write/CreatePost";
 import { themes } from "./write/themes";
 import Profile from "./profile/Profile";
+import LogInModal from "./profile/LogInModal";
 
 function App() {
   return (
     <Fragment>
       <MenuSideDrawer />
       <Routes>
+        <Route path="/login" element={<LogInModal isVisible />} />
         <Route path="/:postId" element={<TimeLine />}>
           <Route path="/:postId/sign-in" element={<SignInModal />} />
         </Route>
