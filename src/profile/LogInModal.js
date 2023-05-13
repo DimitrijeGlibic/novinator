@@ -1,19 +1,26 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { faFacebookF, faGoogle, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
+import { ModalContext } from "../App";
 
 const LogInModal = ({ isVisible }) => {
-    const [isOpen, setIsOpen] = useState(isVisible ?? false);
+    const setIsModalOpen = useContext(ModalContext);
+    const [rememberMe, setRememberMe] = useState(true);
+
 
     const handleCloseModal = () => {
-        setIsOpen(false);
+        setIsModalOpen(false);
+    }
+
+    const onRememberMeChange = () => {
+        setRememberMe((oldValue) => !oldValue);
     }
 
     return (
         <Modal
-            show={isOpen}
+            show={isVisible}
             onHide={handleCloseModal}
             keyboard={false}
         >
@@ -37,7 +44,7 @@ const LogInModal = ({ isVisible }) => {
                         </Button>
                     </div>
                     <Form.Group className="mt-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Remember me" checked />
+                        <Form.Check type="checkbox" label="Remember me" checked={rememberMe} onChange={onRememberMeChange} />
                     </Form.Group>
                     <LoginWithTitle>Or login with</LoginWithTitle>
                     <div className="d-flex gap-2 justify-content-center mt-3">

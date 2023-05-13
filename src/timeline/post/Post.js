@@ -9,10 +9,11 @@ import Content from './Content';
 import { useSwiperSlide } from 'swiper/react';
 import PostMetaTags from './PostMetaTags';
 import { UserContext } from '../../context/UserContext';
-import LogInModal from '../../profile/LogInModal';
+import { ModalContext } from '../../App';
 
 const Post = ({ post }) => {
     const user = useContext(UserContext);
+    const setIsModalOpen = useContext(ModalContext);
     const { author: { name, score, photo }, title, content, theme } = post;
     const [isShareModalVisible, setIsShareModalVisible] = useState(false);
     const { isActive } = useSwiperSlide();
@@ -30,7 +31,8 @@ const Post = ({ post }) => {
             console.log("now folowing");
         }
         else {
-            console.log("login first");
+            console.log('login first');
+            setIsModalOpen(true);
         }
     }
 
