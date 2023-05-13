@@ -1,9 +1,10 @@
 import Post from "./post/Post";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide } from "swiper/react";
 import { data } from "./dumyData";
 import styled from "styled-components";
 import { Container } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
+import VerticalSwiper from "../components/swipers/VerticalSwiper";
 
 const TimeLine = () => {
   const { postId } = useParams();
@@ -31,21 +32,16 @@ const TimeLine = () => {
 
   return (
     <FeedContainer>
-      <StyledSwiper
-        spaceBetween={0}
-        slidesPerView={1}
-        direction="vertical"
-        mousewheel={true}
+      <VerticalSwiper
         initialSlide={convertIdToIndex()}
         onSlideChange={handleSwipeChange}
-        speed={1200}
       >
         {renderPosts()}
 
         <SwiperSlide>
           <FeedEnd>End of feed, Click to go back to top</FeedEnd>
         </SwiperSlide>
-      </StyledSwiper>
+      </VerticalSwiper>
     </FeedContainer>
   );
 };
@@ -60,13 +56,4 @@ const FeedContainer = styled(Container)`
   @media (max-width: 576px) {
     padding: 0;
   }
-`;
-
-const StyledSwiper = styled(Swiper)`
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 `;
