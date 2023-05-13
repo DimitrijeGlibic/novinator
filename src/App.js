@@ -6,16 +6,23 @@ import "./App.css";
 import TimeLine from "./timeline/TimeLine";
 import SignInModal from "./components/menu/SignIn/SignInModal";
 import MenuSideDrawer from "./components/menu/MenuSideDrawer";
-import { Fragment } from "react";
+import { createContext } from "react";
 import CreatePost from "./write/CreatePost";
 import { themes } from "./write/themes";
 import Profile from "./profile/Profile";
 import LogInModal from "./profile/LogInModal";
 import RegisterModal from "./profile/RegisterModal";
+import { UserContext } from "./context/UserContext";
 
 function App() {
+  const user = {
+    name:"Dimitrije",
+    isLoggedIn: false
+  };
+
+
   return (
-    <Fragment>
+    <UserContext.Provider value={user}>
       <MenuSideDrawer />
       <Routes>
         <Route path="/login" element={<LogInModal isVisible />} />
@@ -26,7 +33,7 @@ function App() {
         <Route path="/create-post" element={<CreatePost themes={themes} />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
-    </Fragment>
+    </UserContext.Provider>
   );
 }
 

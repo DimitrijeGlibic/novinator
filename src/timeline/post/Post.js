@@ -1,6 +1,6 @@
 import { faBullhorn, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import styled from 'styled-components';
 import ShareModal from './share/ShareModal';
@@ -8,11 +8,14 @@ import Author from './Author';
 import Content from './Content';
 import { useSwiperSlide } from 'swiper/react';
 import PostMetaTags from './PostMetaTags';
+import { UserContext } from '../../context/UserContext';
+import LogInModal from '../../profile/LogInModal';
 
 const Post = ({ post }) => {
+    const user = useContext(UserContext);
     const { author: { name, score, photo }, title, content, theme } = post;
     const [isShareModalVisible, setIsShareModalVisible] = useState(false);
-    const {isActive} = useSwiperSlide();
+    const { isActive } = useSwiperSlide();
 
     const handleShareButtonClick = () => {
         setIsShareModalVisible(true);
@@ -20,6 +23,15 @@ const Post = ({ post }) => {
 
     const closeModal = () => {
         setIsShareModalVisible(false);
+    }
+
+    const onFollowButtonClick = () => {
+        if (user.isLoggedIn) {
+            console.log("now folowing");
+        }
+        else {
+            console.log("login first");
+        }
     }
 
     return (
@@ -31,7 +43,7 @@ const Post = ({ post }) => {
             <Content title={title} slides={content} theme={theme} />
             <PostInfo>
                 <Author name={name} score={score} photo={photo} />
-                <FollowBtnWrapper><Button variant="outline-light" size="sm">Follow</Button></FollowBtnWrapper>
+                <FollowBtnWrapper><Button variant="outline-light" size="sm" onClick={onFollowButtonClick}>Follow</Button></FollowBtnWrapper>
             </PostInfo>
 
             <ShareModal isVisible={isShareModalVisible} handleCloseModal={closeModal} />
