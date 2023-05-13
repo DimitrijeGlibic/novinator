@@ -52,5 +52,12 @@
 			""
 		],
 		"description": "Styled component from React Component"
+	},
+	"useState": {
+		"prefix": "use",
+		"body": [
+			"const [$1, set$1] = useState(null);"
+		],
+		"description": "useState hook"
 	}
 }
