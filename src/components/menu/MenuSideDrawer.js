@@ -3,7 +3,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Fragment } from "react";
 import { Button, Nav, Offcanvas } from "react-bootstrap";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 
 const MenuSideDrawer = () => {
   const [show, setShow] = useState(false);
