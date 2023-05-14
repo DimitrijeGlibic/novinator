@@ -3,20 +3,27 @@ import { useContext, useEffect, useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { faFacebookF, faGoogle, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import styled from "styled-components";
-import { ModalContext } from "../App";
+import { LoginModalContext } from "../context/LoginModalContext";
+import { RegisterModalContext } from "../context/RegisterModalContext";
 
 const LogInModal = ({ isVisible }) => {
-    // const setIsModalOpen = useContext(ModalContext);
+    const setIsModalOpen = useContext(LoginModalContext);
     const [rememberMe, setRememberMe] = useState(true);
-
+    const setIsRegisterModalOpen = useContext(RegisterModalContext);
 
     const handleCloseModal = () => {
-        // setIsModalOpen(false);
+        setIsModalOpen(false);
     }
 
     const onRememberMeChange = () => {
-        // setRememberMe((oldValue) => !oldValue);
+        setRememberMe((oldValue) => !oldValue);
     }
+
+    const openRegisterModal = () => {
+        handleCloseModal();
+        setIsRegisterModalOpen(true);
+    }
+    
 
     return (
         <Modal
@@ -59,6 +66,9 @@ const LogInModal = ({ isVisible }) => {
                         </TwitterButton>
                     </div>
                 </Form>
+                <div className="text-center mt-3">
+                    Don't have account? <StyledRegister className="text-primary" onClick={openRegisterModal}>Create account</StyledRegister>
+                </div>
             </Modal.Body>
         </Modal>
     );
@@ -119,4 +129,8 @@ const StyledIcon = styled(FontAwesomeIcon)`
     width: 16px;
     height: 16px;
     margin-right: 4px;
+`;
+
+const StyledRegister = styled.span`
+    text-decoration: underline;
 `;

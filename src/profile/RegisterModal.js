@@ -4,13 +4,19 @@ import React, { useContext, useState } from "react"
 import { Button, Form, Modal } from "react-bootstrap";
 import styled from "styled-components";
 import { RegisterModalContext } from "../context/RegisterModalContext";
+import { LoginModalContext } from "../context/LoginModalContext";
 
 const RegisterModal = ({ isVisible }) => {
     const setIsModalOpen = useContext(RegisterModalContext);
-
+    const setIsLoginModalOpen = useContext(LoginModalContext);
 
     const handleCloseModal = () => {
         setIsModalOpen(false);
+    }
+
+    const openLoginModal = () => {
+        handleCloseModal();
+        setIsLoginModalOpen(true);
     }
 
     return (
@@ -61,6 +67,10 @@ const RegisterModal = ({ isVisible }) => {
                         </TwitterButton>
                     </div>
                 </Form>
+                <div className="text-center mt-3">
+                    Already have account? <StyledLogIn className="text-primary" onClick={openLoginModal}>Log In</StyledLogIn>
+                </div>
+                
             </Modal.Body>
         </Modal>
     );
@@ -70,7 +80,7 @@ export default RegisterModal;
 
 const LoginWithTitle = styled.div`
     text-align: center;
-    margin-top: 32px;
+    margin-top: 24px;
     font-style: italic;
 `;
 
@@ -121,4 +131,8 @@ const StyledIcon = styled(FontAwesomeIcon)`
     width: 16px;
     height: 16px;
     margin-right: 4px;
+`;
+
+const StyledLogIn = styled.span`
+    text-decoration: underline;
 `;

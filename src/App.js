@@ -14,6 +14,7 @@ import LogInModal from "./profile/LogInModal";
 import RegisterModal from "./profile/RegisterModal";
 import { UserContext } from "./context/UserContext";
 import { RegisterModalContext } from "./context/RegisterModalContext";
+import { LoginModalContext } from "./context/LoginModalContext";
 
 function App() {
   const user = {
@@ -21,22 +22,26 @@ function App() {
     isLoggedIn: false,
     logginModalVisible: false
   };
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   return (
     <UserContext.Provider value={user}>
-      <RegisterModalContext.Provider value={setIsModalOpen}>
-        <MenuSideDrawer />
-        <Routes>
-          <Route path="/login" element={<LogInModal isVisible />} />
-          <Route path="/register" element={<RegisterModal isVisible />} />
-          <Route path="/:postId" element={<TimeLine />}>
-            <Route path="/:postId/sign-in" element={<SignInModal />} />
-          </Route>
-          <Route path="/create-post" element={<CreatePost themes={themes} />} />
-          <Route path="/profile" element={<Profile />} />
-        </Routes>
-        <RegisterModal isVisible={isModalOpen} />
+      <RegisterModalContext.Provider value={setIsRegisterModalOpen}>
+        <LoginModalContext.Provider value={setIsLoginModalOpen}>
+          <MenuSideDrawer />
+          <Routes>
+            <Route path="/login" element={<LogInModal isVisible />} />
+            <Route path="/register" element={<RegisterModal isVisible />} />
+            <Route path="/:postId" element={<TimeLine />}>
+              <Route path="/:postId/sign-in" element={<SignInModal />} />
+            </Route>
+            <Route path="/create-post" element={<CreatePost themes={themes} />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+          <RegisterModal isVisible={isRegisterModalOpen} />
+          <LogInModal isVisible={isLoginModalOpen} />
+        </LoginModalContext.Provider>
       </RegisterModalContext.Provider>
     </UserContext.Provider>
   );
