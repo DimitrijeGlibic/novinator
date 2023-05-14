@@ -6,16 +6,16 @@ import styled from "styled-components";
 import { ModalContext } from "../App";
 
 const LogInModal = ({ isVisible }) => {
-    const setIsModalOpen = useContext(ModalContext);
+    // const setIsModalOpen = useContext(ModalContext);
     const [rememberMe, setRememberMe] = useState(true);
 
 
     const handleCloseModal = () => {
-        setIsModalOpen(false);
+        // setIsModalOpen(false);
     }
 
     const onRememberMeChange = () => {
-        setRememberMe((oldValue) => !oldValue);
+        // setRememberMe((oldValue) => !oldValue);
     }
 
     return (

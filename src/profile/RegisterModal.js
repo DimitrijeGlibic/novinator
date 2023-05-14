@@ -1,19 +1,21 @@
 import { faFacebookF, faGoogle, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import { Button, Form, Modal } from "react-bootstrap";
 import styled from "styled-components";
+import { RegisterModalContext } from "../context/RegisterModalContext";
 
 const RegisterModal = ({ isVisible }) => {
-    const [isOpen, setIsOpen] = useState(isVisible ?? false);
+    const setIsModalOpen = useContext(RegisterModalContext);
+
 
     const handleCloseModal = () => {
-        setIsOpen(false);
+        setIsModalOpen(false);
     }
 
     return (
         <Modal
-            show={isOpen}
+            show={isVisible}
             onHide={handleCloseModal}
             keyboard={false}
         >

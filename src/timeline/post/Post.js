@@ -9,11 +9,11 @@ import Content from './Content';
 import { useSwiperSlide } from 'swiper/react';
 import PostMetaTags from './PostMetaTags';
 import { UserContext } from '../../context/UserContext';
-import { ModalContext } from '../../App';
+import { RegisterModalContext } from '../../context/RegisterModalContext';
 
 const Post = ({ post }) => {
     const user = useContext(UserContext);
-    const setIsModalOpen = useContext(ModalContext);
+    const setIsModalOpen = useContext(RegisterModalContext);
     const { author: { name, score, photo }, title, content, theme } = post;
     const [isShareModalVisible, setIsShareModalVisible] = useState(false);
     const { isActive } = useSwiperSlide();
