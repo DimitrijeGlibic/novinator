@@ -19,11 +19,10 @@ const AuthModal = ({ isVisible }) => {
     }
 
     const onCodeInputChange = (currentCodeIndex) => () => {
-        console.log(currentCodeIndex);
-        setActiveCodeIndex(currentCodeIndex+1);
+        setActiveCodeIndex(currentCodeIndex + 1);
         const active = document.activeElement;
         if (active?.nextElementSibling) {
-          (active.nextElementSibling).focus();
+            (active.nextElementSibling).focus();
         }
     };
 
@@ -38,7 +37,7 @@ const AuthModal = ({ isVisible }) => {
             <CodeSentFailed className="text-primary">Niste dobili email?</CodeSentFailed>
         </CodePartWrapper>
     );
-    console.log('active index', activeCodeIndex);
+
     return (
         <Modal
             show={isVisible}
@@ -46,13 +45,17 @@ const AuthModal = ({ isVisible }) => {
             keyboard={false}
         >
             <Modal.Header>
-                <Modal.Title>Priljuči se</Modal.Title>
+                <Modal.Title>Napravite nalog ili se ulogujte</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control type="email" placeholder="Unesi email" />
+                        <Form.Control type="email" placeholder="Unesite email" />
+                        {!isCodeFieldVisible && <AuthInfo className="text-muted">
+                            Ukoliko vec imate nalog, unesite email od tog naloga
+                        </AuthInfo>}
                     </Form.Group>
+
                     {isCodeFieldVisible && renderCodeFiled()}
                     <div className="d-grid gap-2">
                         <Button variant="outline-primary" onClick={handleContinueClick} ref={continueButtonRef}>
@@ -87,4 +90,9 @@ const CodeSentFailed = styled.div`
     font-size: 12px;
     margin-top: 8px;
     text-align: center;
+`;
+
+const AuthInfo = styled(Form.Text)`
+    font-size: 12px;
+    
 `;
