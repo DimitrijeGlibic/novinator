@@ -32,7 +32,7 @@ const AuthModal = ({ isVisible }) => {
             <CodeInfo>Poslali smo kod na vas email, unesite ga:</CodeInfo>
             <div className="d-flex gap-2 justify-content-center">
                 {[1, 2, 3, 4, 5].map((value) =>
-                    <SingleCodeInput type="text" autoFocus={value === activeCodeIndex} onChange={onCodeInputChange(value)} key={value} />
+                    <SingleCodeInput type="number" autoFocus={value === activeCodeIndex} onChange={onCodeInputChange(value)} key={value} />
                 )}
             </div>
             <CodeSentFailed className="text-primary">Niste dobili email?</CodeSentFailed>
