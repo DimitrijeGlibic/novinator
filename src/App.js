@@ -15,6 +15,8 @@ import RegisterModal from "./profile/RegisterModal";
 import { UserContext } from "./context/UserContext";
 import { RegisterModalContext } from "./context/RegisterModalContext";
 import { LoginModalContext } from "./context/LoginModalContext";
+import { AuthModalContext } from "./context/AuthModalContext";
+import AuthModal from "./profile/AuthModal";
 
 function App() {
   const user = {
@@ -24,26 +26,29 @@ function App() {
   };
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   return (
-    <UserContext.Provider value={user}>
-      <RegisterModalContext.Provider value={setIsRegisterModalOpen}>
-        <LoginModalContext.Provider value={setIsLoginModalOpen}>
-          <MenuSideDrawer />
-          <Routes>
-            <Route path="/login" element={<LogInModal isVisible />} />
-            <Route path="/register" element={<RegisterModal isVisible />} />
-            <Route path="/:postId" element={<TimeLine />}>
-              <Route path="/:postId/sign-in" element={<SignInModal />} />
-            </Route>
-            <Route path="/create-post" element={<CreatePost themes={themes} />} />
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
-          <RegisterModal isVisible={isRegisterModalOpen} />
-          <LogInModal isVisible={isLoginModalOpen} />
-        </LoginModalContext.Provider>
-      </RegisterModalContext.Provider>
-    </UserContext.Provider>
+    <AuthModalContext.Provider value={setIsAuthModalOpen}>
+      <UserContext.Provider value={user}>
+        <RegisterModalContext.Provider value={setIsRegisterModalOpen}>
+          <LoginModalContext.Provider value={setIsLoginModalOpen}>
+            <MenuSideDrawer />
+            <Routes>
+              <Route path="/login" element={<LogInModal isVisible />} />
+              <Route path="/register" element={<RegisterModal isVisible />} />
+              <Route path="/:postId" element={<TimeLine />}>
+                <Route path="/:postId/sign-in" element={<SignInModal />} />
+              </Route>
+              <Route path="/create-post" element={<CreatePost themes={themes} />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+            <RegisterModal isVisible={isRegisterModalOpen} />
+            <LogInModal isVisible={isLoginModalOpen} />
+            <AuthModal isVisible={isAuthModalOpen} />
+          </LoginModalContext.Provider>
+        </RegisterModalContext.Provider>
+      </UserContext.Provider>
+    </AuthModalContext.Provider>
   );
 }
 

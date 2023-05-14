@@ -10,10 +10,12 @@ import { useSwiperSlide } from 'swiper/react';
 import PostMetaTags from './PostMetaTags';
 import { UserContext } from '../../context/UserContext';
 import { RegisterModalContext } from '../../context/RegisterModalContext';
+import { AuthModalContext } from '../../context/AuthModalContext';
 
 const Post = ({ post }) => {
     const user = useContext(UserContext);
-    const setIsModalOpen = useContext(RegisterModalContext);
+    // const setIsModalOpen = useContext(RegisterModalContext);
+    const setIsAuthModalOpen = useContext(AuthModalContext);
     const { author: { name, score, photo }, title, content, theme } = post;
     const [isShareModalVisible, setIsShareModalVisible] = useState(false);
     const { isActive } = useSwiperSlide();
@@ -32,7 +34,7 @@ const Post = ({ post }) => {
         }
         else {
             console.log('login first');
-            setIsModalOpen(true);
+            setIsAuthModalOpen(true);
         }
     }
 
